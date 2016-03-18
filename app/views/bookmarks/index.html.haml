@@ -3,8 +3,7 @@
     %tr
       %th Url
       %th Title
-      %th
-      %th
+      %th Slug
       %th
 
   %tbody
@@ -12,9 +11,10 @@
       %tr
         %td= link_to bookmark.url, bookmark.url
         %td= bookmark.title
-        %td= link_to 'Show', bookmark
-        %td= link_to 'Edit', edit_bookmark_path(bookmark)
-        %td= link_to 'Destroy', bookmark, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to bookmark.slug, visit_url(bookmark.slug)
+        %td
+          = link_to 'Edit', edit_bookmark_path(bookmark)
+          = link_to 'Destroy', bookmark, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
