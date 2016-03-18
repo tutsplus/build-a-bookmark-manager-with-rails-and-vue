@@ -12,7 +12,12 @@
       %tr
         %td= link_to bookmark.url, bookmark.url
         %td= bookmark.title
-        %td= link_to bookmark.slug, visit_url(bookmark.slug)
+        %td
+          %p.input-group
+            =text_field_tag "", visit_url(bookmark.slug), id: "bookmark-#{bookmark.id}", class: "form-control"
+            %span.input-group-btn
+              =button_tag class: "btn btn-default btn-clipboard", data: { "clipboard-target": "#bookmark-#{bookmark.id}" } do
+                %i.fa.fa-clipboard
         %td= bookmark.visit_count
         %td
           = link_to 'Edit', edit_bookmark_path(bookmark)
