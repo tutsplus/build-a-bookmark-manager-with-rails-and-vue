@@ -4,6 +4,7 @@
       %th Url
       %th Title
       %th Slug
+      %th Visit count
       %th
 
   %tbody
@@ -12,6 +13,7 @@
         %td= link_to bookmark.url, bookmark.url
         %td= bookmark.title
         %td= link_to bookmark.slug, visit_url(bookmark.slug)
+        %td= bookmark.visit_count
         %td
           = link_to 'Edit', edit_bookmark_path(bookmark)
           = link_to 'Destroy', bookmark, :method => :delete, :data => { :confirm => 'Are you sure?' }
