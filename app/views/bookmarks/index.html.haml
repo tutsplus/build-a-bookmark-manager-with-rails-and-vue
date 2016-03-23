@@ -2,6 +2,7 @@
   %thead
     %tr
       %th Url
+      %th Image
       %th Title
       %th Slug
       %th Visit count
@@ -10,8 +11,14 @@
   %tbody
     - @bookmarks.each do |bookmark|
       %tr
-        %td= link_to bookmark.url, bookmark.url
-        %td= bookmark.title
+        %td= link_to "http://" + bookmark.url, "http://" + bookmark.url
+        %td= image_tag bookmark.image, width: "100" if bookmark.image
+        %td
+          %p
+            %strong
+              = bookmark.title
+          %p.text-muted
+            =bookmark.paragraph
         %td
           %p.input-group
             =text_field_tag "", visit_url(bookmark.slug), id: "bookmark-#{bookmark.id}", class: "form-control"

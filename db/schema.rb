@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318113112) do
+ActiveRecord::Schema.define(version: 20160323132415) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.string   "url"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160318113112) do
     t.datetime "updated_at",              null: false
     t.string   "slug"
     t.integer  "visit_count", default: 0, null: false
+    t.string   "image"
+    t.string   "paragraph"
   end
 
 end
